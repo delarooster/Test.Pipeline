@@ -1,0 +1,9 @@
+name: Michal Run
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - run: "echo Hello Michal"
