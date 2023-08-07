@@ -6,5 +6,7 @@ jobs:
     build:
         uses: delarooster/Dlr.Yaml.Templates/.github/workflows/build.yaml@main
         with:
-            name: 'Joe'
-            jobName: 'Plumber'
+            bicepTemplatePath: 'env/shared/main.bicep'
+            additionalBicepParameters: 'Hello World!'
+            clientAffix: 'Test test 123'
+            env: 'Ts'
