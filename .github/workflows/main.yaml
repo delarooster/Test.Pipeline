@@ -1,12 +1,12 @@
 name: Test Run
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
     build:
         uses: delarooster/Dlr.Yaml.Templates/.github/workflows/build.yaml@main
         with:
-            bicepTemplatePath: 'env/shared/main.bicep'
+            #bicepTemplatePath: 'env/shared/main.bicep'
             additionalBicepParameters: 'Hello World!'
             clientAffix: 'Test test 123'
             env: 'Ts'
