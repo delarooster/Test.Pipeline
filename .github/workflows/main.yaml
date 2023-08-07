@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   build:
-    uses: delarooster/Dlr.Yaml.Templates/.github/workflows/build.yaml@main
+    uses: delarooster/Dlr.Yaml.Templates/.github/workflows/deploy-bicep.yaml@main
     with:
         #bicepTemplatePath: 'env/shared/main.bicep'
         additionalBicepParameters: 'Hello World!'
