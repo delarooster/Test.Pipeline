@@ -1,0 +1,9 @@
+variables:
+  # : Template Variables
+  clientAffix: Contoso
+  projectAffix: Edge
+  componentAffix: Platform
+  owner: 'Tony the Tiger'
+  project: 'Frosted Cakes'
+  customer: 'MSFT'
+  repository: 'Test.Pipeline'
