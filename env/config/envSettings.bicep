@@ -1,6 +1,6 @@
 param environment string
 param baseTime string = utcNow('u')
-var settings = loadYamlContent('../../pipelines/variables.yml')
+var settings = loadYamlContent('../../pipelines/variables.yaml')
 
 var environmentSettings = {
   dv: {
@@ -57,10 +57,10 @@ var environmentSettings = {
       }
     }
     tags: {
-      Owner: settings.variables.owner
-      Project: settings.variables.project
-      Customer: settings.variables.customer
-      Repository: settings.variables.repository
+      Owner: settings.owner
+      Project: settings.project
+      Customer: settings.customer
+      Repository: settings.repository
       'Date Last Deployed': baseTime
       'Service Connection': 'Dv_Contoso_Deploy'
       Tier: 'Dv'
@@ -120,10 +120,10 @@ var environmentSettings = {
       }
     }
     tags: {
-      Owner: settings.variables.owner
-      Project: settings.variables.project
-      Customer: settings.variables.customer
-      Repository: settings.variables.repository
+      Owner: settings.owner
+      Project: settings.project
+      Customer: settings.customer
+      Repository: settings.repository
       'Date Last Deployed': baseTime
       'Service Connection': 'Dv_Contoso_Deploy'
       Tier: 'Sg'
@@ -183,10 +183,10 @@ var environmentSettings = {
       }
     }
     tags: {
-      Owner: settings.variables.owner
-      Project: settings.variables.project
-      Customer: settings.variables.customer
-      Repository: settings.variables.repository
+      Owner: settings.owner
+      Project: settings.project
+      Customer: settings.customer
+      Repository: settings.repository
       'Date Last Deployed': baseTime
       'Service Connection': 'Pd_Contoso_Deploy'
       Tier: 'Pd'
