@@ -31,9 +31,11 @@ module environment 'config/envSettings.bicep' = {
 module acr 'modules/acr.bicep' = {
   name: resourceNames.acr
   params: {
-    acrName: resourceNames.acr
+    acr: resourceNames.acr
     location: location
     settings: environment.outputs.settings
     tags: environment.outputs.settings.tags
   }
 }
+
+output acrName string = acr.outputs.acrName
