@@ -11,3 +11,12 @@ jobs:
         env: 'Ts'
         resourceGroup: 'rg-atd-test'
     secrets: inherit
+  
+  outputs:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - run: |
+          Write-Host "ACR Name -> " ${{ steps.bicep-outputs.outputs.acrName }}
