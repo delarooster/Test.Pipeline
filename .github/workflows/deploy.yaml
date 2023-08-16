@@ -20,4 +20,4 @@ jobs:
         shell: pwsh
     steps:
       - run: |
-          Write-Host "ACR Name -> " ${{ env.acrName }}
+          Write-Host "ACR Name -> " ${{ needs.inputs.outputs.acrName }}
