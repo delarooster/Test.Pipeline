@@ -20,4 +20,4 @@ jobs:
         shell: pwsh
     steps:
       - run: |
-          Write-Host "ACR Name -> " ${{ needs.inputs.deploy-bicep.outputs.acrName }}
+          Write-Host "ACR Name -> " ${{ needs.inputs.outputs.acrName }}
