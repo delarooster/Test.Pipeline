@@ -3,7 +3,7 @@ name: Deploy Bicep
 on: [push, workflow_dispatch]
 
 jobs:
-  inputs:
+  jobA:
     uses: delarooster/Dlr.Yaml.Templates/.github/workflows/deploy-bicep.yaml@main
     with:
         bicepTemplatePath: 'env/main.bicep'
@@ -12,12 +12,14 @@ jobs:
         resourceGroup: 'rg-atd-test'
     secrets: inherit
   
-  outputs:
+  jobB:
     runs-on: ubuntu-latest
-    needs: inputs
+    needs: jobA
     defaults:
       run:
         shell: pwsh
     steps:
       - run: |
-          Write-Host "ACR Name -> " ${{ needs.inputs.outputs.acrName }}
+          Write-Host "ACR Name -> " ${{ needs.jobA.outputs.acrName }}
+          Write-Host "ACR Name -> " ${{ needs.jobA.bicep-outputs.outputs.acrName }}
+          Write-Host "ACR Name -> " ${{ needs.bicep-outputs.outputs.acrName }}
