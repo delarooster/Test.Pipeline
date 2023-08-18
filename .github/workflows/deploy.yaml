@@ -13,10 +13,10 @@ jobs:
       id: bicep-outputs
       run: |
         echo "Hard-coded outputs:"
-        #echo "acrName=Blah123" >> $GITHUB_OUTPUT
-        #echo "acrName=Blah123" | Out-File -Append $env:GITHUB_OUTPUT
-        echo "acrName=Blah123" >> $GITHUB_ENV
-        echo "acrName=Blah123" | Out-File -Append $env:GITHUB_ENV
+        echo "acrName=Blah123" >> $GITHUB_OUTPUT
+        echo "acrName=Blah123" | Out-File -Append $env:GITHUB_OUTPUT
+        #echo "acrName=Blah123" >> $GITHUB_ENV
+        #echo "acrName=Blah123" | Out-File -Append $env:GITHUB_ENV
     outputs: 
       acrName: ${{ steps.bicep-outputs.outputs.acrName }}
   
