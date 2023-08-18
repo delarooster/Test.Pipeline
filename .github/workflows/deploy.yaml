@@ -11,8 +11,6 @@ jobs:
         env: 'Ts'
         resourceGroup: 'rg-atd-test'
     secrets: inherit
-    outputs: 
-      acrName: ${{ steps.bicep-outputs.outputs.acrName }}
   
   jobB:
     runs-on: ubuntu-latest
