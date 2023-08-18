@@ -4,13 +4,28 @@ on: [push, workflow_dispatch]
 
 jobs:
   jobA:
-    uses: delarooster/Dlr.Yaml.Templates/.github/workflows/deploy-bicep.yaml@main
-    with:
-        bicepTemplatePath: 'env/main.bicep'
-        clientAffix: 'Test test 123'
-        env: 'Ts'
-        resourceGroup: 'rg-atd-test'
-    secrets: inherit
+    # uses: delarooster/Dlr.Yaml.Templates/.github/workflows/deploy-bicep.yaml@main
+    # with:
+    #     bicepTemplatePath: 'env/main.bicep'
+    #     clientAffix: 'Test test 123'
+    #     env: 'Ts'
+    #     resourceGroup: 'rg-atd-test'
+    # secrets: inherit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+    - name: Hard-Coded Outputs
+      id: bicep-outputs
+      run: |
+        echo "Hard-coded outputs:"
+        echo "acrName=Blah123" >> $GITHUB_OUTPUT
+        echo "acrName=Blah123" | Out-File -Append $env:GITHUB_OUTPUT
+        echo "acrName=Blah123" >> $GITHUB_ENV
+        echo "acrName=Blah123" | Out-File -Append $env:GITHUB_ENV
+    outputs: 
+      acrName: ${{ steps.bicep-outputs.outputs.acrName }}
   
   jobB:
     runs-on: ubuntu-latest
