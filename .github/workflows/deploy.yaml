@@ -19,5 +19,12 @@ jobs:
       run:
         shell: pwsh
     steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: bicep-outputs
+          
+      - name: Display structure of downloaded files
+        run: ls -R
+        
       - run: |
-          Write-Host "ACR Name -> " ${{ needs.jobA.outputs.acrName }}
+          Write-Host "ACR Name -> " $(Get-Content -Path bicep-outputs/acrName)
