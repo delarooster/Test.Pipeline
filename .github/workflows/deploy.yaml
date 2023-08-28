@@ -22,9 +22,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: bicep-outputs
+          path: bicep-outputs
           
       - name: Display structure of downloaded files
         run: ls -R
-        
+
       - run: |
           Write-Host "ACR Name -> " $(Get-Content -Path bicep-outputs/acrName)
