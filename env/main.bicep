@@ -36,5 +36,5 @@ module acr 'br:dvmeshtemplatesacr.azurecr.io/mesh/acr:1.0.2' = {
     tags: environment.outputs.settings.tags
   }
 }
-
+// test 1234
 output acrName string = acr.outputs.name
