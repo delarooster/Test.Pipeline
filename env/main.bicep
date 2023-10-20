@@ -28,14 +28,13 @@ module environment 'config/envSettings.bicep' = {
   }
 }
 
-module acr 'modules/acr.bicep' = {
+module acr 'br:dvmeshtemplatesacr.azurecr.io/mesh/acr:1.0.2' = {
   name: resourceNames.acr
   params: {
-    acr: resourceNames.acr
+    name: resourceNames.acr
     location: location
-    settings: environment.outputs.settings
     tags: environment.outputs.settings.tags
   }
 }
 
-output acrName string = acr.outputs.acrName
+output acrName string = acr.outputs.name

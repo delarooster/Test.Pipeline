@@ -3,18 +3,18 @@ name: Deploy Bicep
 on: [push, workflow_dispatch]
 
 jobs:
-  jobA:
+  deploy:
     uses: delarooster/Dlr.Yaml.Templates/.github/workflows/deploy-bicep.yaml@main
     with:
-        bicepTemplatePath: 'env/main.bicep'
-        clientAffix: 'Test test 123'
-        env: 'Ts'
-        resourceGroup: 'rg-atd-test'
+      bicepTemplatePath: "env/main.bicep"
+      clientAffix: "Test test 123"
+      env: "Ts"
+      resourceGroup: "rg-atd-test"
     secrets: inherit
-  
-  jobB:
+
+  post-deploy:
     runs-on: ubuntu-latest
-    needs: jobA
+    needs: deploy
     defaults:
       run:
         shell: pwsh
@@ -23,9 +23,10 @@ jobs:
         with:
           name: bicep-outputs
           path: bicep-outputs
-          
+
       - name: Display structure of downloaded files
         run: ls -R
 
-      - run: |
+      - name: ACR Name Check
+        run: |
           Write-Host "ACR Name -> " $(Get-Content -Path bicep-outputs/acrName)
