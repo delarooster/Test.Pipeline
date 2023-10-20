@@ -28,7 +28,7 @@ module environment 'config/envSettings.bicep' = {
   }
 }
 
-module acr 'br:dvmeshtemplatesacr.azurecr.io/mesh/acr:1.0.3' = {
+module acr 'br:dvmeshtemplatesacr.azurecr.io/mesh/acr:1.0.4' = {
   name: resourceNames.acr
   params: {
     name: resourceNames.acr
